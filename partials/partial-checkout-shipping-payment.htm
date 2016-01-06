@@ -1,0 +1,110 @@
+<table id="checkout-progress">
+  <tr>
+    <td class="current-step"><p>1</p></td>
+    <td class="current-step"><p>2</p></td>
+    <td><p>3</p></td>
+  </tr>
+  <tr>
+    <td>Shipping & Billing</td>
+    <td>Shipping Method</td>
+    <td class="grey">Pay</td>
+  </tr>
+</table>
+
+{{ open_form({'class': 'custom'}) }}
+
+<div class="wrapper">
+  <div class="billing-summary">
+    <h2>Delivery & Billing Info</h2>
+    <hr>
+    <div class="billing-form">
+      <ul>
+        <li>
+          {{ billingInfo.firstName }}
+          {{ billingInfo.lastName }}
+        </li>
+        <li class="edit"><a href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=partial-checkout, #mini-cart=shop-minicart" data-ajax-extra-fields="nextStep=billing_info">Edit</a></li>
+        <li>{{ billingInfo.streetAddressLine1 }}</li>
+        <li>
+          {{ billingInfo.city }},
+          {{ billingInfo.state.code }}
+          {{ billingInfo.postalCode }}
+        </li>
+        <li>{{ billingInfo.country.name }}</li>
+      </ul>
+      <input type="checkbox" checked disabled /><h4>Use for shipping address</h4>
+    </div>
+ 
+    <h2>Delivery Method</h2>
+    <hr>
+
+    <div id="delivery-form">
+      {% if shippingOptions %}
+        <input type="hidden" value="" name="shippingMethod">
+
+          {% for index, option in shippingOptions %}
+
+                <label for="{{ 'option'~index }}">
+                  <!-- The shipping method radio button clicks are handled in the app.js -->
+                  <input name="shippingMethod" {{ option.error_hint ? 'disabled' : null }} value="{{ index }}" {{ radio_state(shippingMethodInfo.id, option.id) }} type="radio" id="{{ 'option'~index }}"/>
+
+                  <span>
+                    {{ option.shippingMethodName }}
+                    {% if option.shippingServiceName %}: {{ option.shippingServiceName }}{% endif %}
+                  </span>
+
+                  {% if option.error_hint %}
+                    <span>{{ option.error_hint }}</span>
+                  {% endif %}
+
+                  <span class="delivery-cost">
+                  {% if not option.error_hint  %}
+                    {{ not option.is_free ? option.quote|currency : 'free' }}
+                  {% endif %}
+                  </span>
+
+                </label>
+
+          {% endfor %}
+
+          <a class="button next" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=partial-checkout, #mini-cart=shop-minicart">Place order &amp; pay</a>
+
+      {% else %}
+        <p>We are sorry, there are no shipping options available for your location.</p>
+      {% endif %}
+
+    </div>
+
+  <input type="hidden" name="step" value="shipping_method,review" />
+  <input type="hidden" name="nextStep" value="pay" />
+
+    </div>
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <hr>
+    <div class="order-summary-description">
+      {% if totals.discountTotal > 0 %}
+        <h3>Discount</h3>
+      {% endif %} 
+      <h3>Subtotal</h3>
+      {% if totals.totalShippingQuote %}
+        <h3>Shipping</h3>
+      {% endif %}
+      <h3>Tax</h3>
+      <h2>Total</h2>
+    </div>
+    <div class="order-summary-amount">
+      {% if totals.discountTotal > 0 %}
+        <h3>{{ totals.discountTotal|currency }}</h3>
+      {% endif %} 
+      <h3>{{ totals.subtotal|currency }}</h3>
+      {% if totals.totalShippingQuote %}
+        <h3>{{ totals.totalShippingQuote|currency }}</h3>
+      {% endif %}
+      <h3>{{ totals.totalTax|currency }}</h3>
+      <h2>{{ totals.total|currency }}</h2>
+    </div>
+  </div>
+
+</div>
+{{ close_form() }}

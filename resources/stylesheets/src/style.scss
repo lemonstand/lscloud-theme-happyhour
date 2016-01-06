@@ -1,0 +1,200 @@
+@import "bourbon";
+@import "neat";
+// --- FONTS ---
+// Sizes
+$large: modular-scale(4);
+$medium: modular-scale(1);
+$small: modular-scale(0);
+$tiny: modular-scale(-1);
+// Colours
+$black: rgb(74, 74, 74);
+$lightgrey: rgba(155,155,155,0.3);
+$grey: rgb(155, 155, 155);
+$headergrey: #F9F9F9;
+$white: #fff;
+$link: #0087C8;
+$base-border-color: #DDD;
+$progress-green: #55A537;
+$red: #D20606;
+$darkgrey: #555;
+// Weights
+$thin: 100;
+$light: 200;
+$normal: 400;
+$bold: 500;
+$heavy: 700;
+// --- BUTTONS ---
+$action-color: #F0C332;
+$base-border-radius: 3px;
+// --- SPACING ---
+$base-spacing: 1.5em;
+$continue-spacing: 4em;
+$small-spacing: $base-spacing / 2;
+$modal-padding: 2em;
+// --- TRANSITIONS ---
+$base-duration: 150ms;
+$base-timing: ease;
+body {
+	font-family: $helvetica;
+}
+// Titles
+h1 {
+	// font-size: $large;
+	font-size: 2.625em;
+	font-weight: $light;
+	color: $grey;
+}
+// Subtitles, costs
+h2 {
+	font-size: $medium;
+	font-weight: $normal;
+	color: $black;
+}
+// Forms, paragraph text
+h3 {
+	font-size: $small;
+	font-weight: $light;
+	color: $black;
+}
+// Labels, text buttons, footer
+h4 {
+	font-size: $tiny;
+	font-weight: $light;
+	color: $black;
+}
+a {
+	text-decoration: none;
+	color: $black;
+	&:hover {
+		color: $link;
+	}
+}
+p {
+  line-height: 1.5em;
+	font-size: 1.125em;
+	font-weight: $light;
+}
+ul {
+	list-style: none;
+	li {
+		font-size: $small;
+		font-weight: $light;
+		color: $black;
+	}
+}
+.blue {
+	color: $link;
+	text-decoration: underline;
+}
+span.error {
+	color: $red;
+	font-size: 0.75em;
+	font-weight: $normal;
+	margin-top: -$small-spacing;
+	margin-bottom: 1em;
+	display: block;
+}
+// Buttons
+.button {
+	border: 0;
+	border-radius: $base-border-radius;
+	cursor: pointer;
+	font-size: $small;
+	@include transition( background-color $base-duration $base-timing );
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.next {
+	background-color: $action-color;
+	color: $white;
+	font-weight: $heavy;
+	padding: $small-spacing $base-spacing;
+  &:hover,
+  &:focus {
+    background-color: shade($action-color, 20%);
+    color: $white;
+  }
+}
+.call-to-action {
+	background-color: $action-color;
+	color: $white;
+	font-weight: $heavy;
+	padding: $base-spacing $base-spacing;
+  &:hover,
+  &:focus {
+    background-color: shade($action-color, 20%);
+    color: $white;
+  }
+}
+.continue-shopping {
+	background-color: $white;
+	border: 1px solid $grey;
+	border-radius: $base-border-radius;
+	color: $link;
+	font-weight: $heavy;
+	padding: $small-spacing $continue-spacing;
+  &:hover,
+  &:focus {
+    border-color: shade($link, 20%);
+    color: shade($link, 20%);
+  }
+}
+// Forms
+label {
+	display: block;
+  color: $grey;
+  font-size: $tiny;
+  font-weight: $light;
+  margin-bottom: $small-spacing / 2;
+  &.required::after {
+    content: "*";
+  }
+}
+#{$all-text-inputs},
+select {
+	border: 1px solid $base-border-color;
+  border-radius: $base-border-radius;
+  font-size: $small;
+  margin-bottom: $small-spacing;
+  padding: $base-spacing / 3;
+	font-size: $small;
+	font-weight: $light;
+	color: $black;
+  &:hover {
+    border-color: shade($base-border-color, 20%);
+  }
+  &:focus {
+    border-color: $action-color;
+    box-shadow: inset 0 1px 3px rgba(#000, 0.06), 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+    outline: none;
+  }
+}
+select {
+	height: 34px;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+// Products
+.oldprice {
+	text-decoration: line-through;
+	font-size: $small;
+}
+.product {
+	img {
+		border: 1px solid $lightgrey;
+	}
+	&:hover {
+		img { border-color: $grey; }
+	}
+	h3 {
+    font-weight: $heavy;
+    margin: 0.5em 0 0.5em 0;
+	}
+	h2 {
+    color: $grey;
+    font-weight: $light;
+    display: inline;
+	}
+}

@@ -1,0 +1,23 @@
+<div id="write-modal">	
+	<div class="modal">
+		<div class="modal-fade-screen modal-form-fade-screen">
+			<div class="modal-inner checkout-modal">
+				<div class="modal-close" for="modal-1"></div>
+				<h1>Welcome Back!</h1>
+
+				{{ open_form({'data-ajax-handler': 'shop:onLogin', 'data-validation-message' : ''}) }}
+					<label for="login_email">E-mail Address</label><input class="required" type="text" id="login_email" name="email" value="{{ post('email') }}"/>
+					<span class="error"></span>
+					<label for="login_password">Password</label><input class="required" type="password" name="password" id="login_password" />
+					<h4 class="forgotpass">
+						<a class="right blue" href="{{ site_url('/password-restore') }}">Forgot?</a>
+					</h4>
+					<span class="error"></span>
+					<input type="submit" class="button next" value="Sign In"/>
+					<input type="hidden" name="redirect" value="{{ site_url('checkout') }}"/>
+				{{ close_form() }}
+				<p>Don't have an account? <a id="sign-up-inview" 	href="#">Sign Up</a></p>
+			</div>
+		</div>
+	</div>
+</div>

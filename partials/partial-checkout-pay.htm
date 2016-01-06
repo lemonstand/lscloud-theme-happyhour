@@ -1,0 +1,104 @@
+<table id="checkout-progress">
+  <tr>
+    <td class="current-step"><p>1</p></td>
+    <td class="current-step"><p>2</p></td>
+    <td class="current-step"><p>3</p></td>
+  </tr>
+  <tr>
+    <td>Shipping & Billing</td>
+    <td>Shipping Method</td>
+    <td>Pay</td>
+  </tr>
+</table>
+
+{% if cart %}
+
+<div class="wrapper">
+  <div class="billing-summary">
+    <h2>Delivery & Billing Info</h2>
+    <hr>
+    <div class="billing-form">
+      <ul>
+        <li>
+          {{ billingInfo.firstName }}
+          {{ billingInfo.lastName }}
+        </li>
+        <li class="edit"><a href="/checkout">Edit</a></li>
+        <li>{{ billingInfo.streetAddressLine1 }}</li>
+        <li>
+          {{ billingInfo.city }},
+          {{ billingInfo.state.code }}
+          {{ billingInfo.postalCode }}
+        </li>
+        <li>{{ billingInfo.country.name }}</li>
+      </ul>
+      <input type="checkbox" checked disabled /><h4>Use for shipping address</h4>
+    </div>
+ 
+    <h2>Delivery Method</h2>
+    <hr>
+
+    <div id="delivery-form">
+      <input type="radio" checked disabled />
+      <label>
+        <span>{{ option.shippingServiceName }}</span>
+        <span class="delivery-cost">{{ option.quote|currency }}</span>
+      </label>
+    </div>
+
+    <h2>Payment</h2>
+    <hr>
+
+    <div id="pay-form">
+      {% if order.payment_processed %}
+        <h3><strong>Thank you!</strong> The payment is already processed for this order.</h3>
+      {% else %}
+      <label for="payment_method">Payment method</label>
+      <!-- The payment form below (id="payment_form") automatically updates when the payment method is changed. See app.js for the implementation details. -->
+      {{ open_form({'class': 'custom'}) }}
+        <select name="paymentMethodId" id="payment_method">
+          <option value=''> - </option>
+          {% for method in paymentMethods %}
+              <option value="{{ method.id }}">{{ method.name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      <div id="payment_form">
+       {{ partial('partial-paymentform') }}
+      </div>
+      {% endif %}
+    </div>
+
+</div>
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <hr>
+    <div class="order-summary-description">
+      {% if totals.discountTotal > 0 %}
+        <h3>Discount</h3>
+      {% endif %} 
+      <h3>Subtotal</h3>
+      {% if totals.totalShippingQuote %}
+        <h3>Shipping</h3>
+      {% endif %}
+      <h3>Tax</h3>
+      <h2>Total</h2>
+    </div>
+    <div class="order-summary-amount">
+      {% if totals.discountTotal > 0 %}
+        <h3>{{ totals.discountTotal|currency }}</h3>
+      {% endif %} 
+      <h3>{{ totals.subtotal|currency }}</h3>
+      {% if totals.totalShippingQuote %}
+        <h3>{{ totals.totalShippingQuote|currency }}</h3>
+      {% endif %}
+      <h3>{{ totals.totalTax|currency }}</h3>
+      <h2>{{ totals.total|currency }}</h2>
+    </div>
+  </div>
+
+</div>
+
+{% else %}
+  <p class="flash error">Order not found.</p>
+{% endif %}

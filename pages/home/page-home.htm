@@ -1,0 +1,78 @@
+---
+action: 'shop:products'
+template: main
+protocol: all
+published: true
+name: Bones
+url: /
+---
+<section class="wrapper">
+	<div id="home-details">
+		<h1>Online Alcohol Shopping.</h1>
+		<h1>Delivered Within 20 Min. 🚀</h1>
+		<h3>1 Day Only: <strong>30% Off All Items.</strong></h3>
+		<h3>Use Coupon Code <span class="coupon"><strong>#FaceOff2015</strong></span></h3>
+		<a class="button call-to-action" href="/shop">Shop Now</a>
+		<a class="blue" id="how-does-it-work" href="#featured-content">How does it work?</a>
+	</div>
+	<div class="carousel-wrap">
+		<div id="featured-carousel">
+		{% set featuredCollection = 'display'|collection %}
+		{% paginate featuredCollection.products by 1 %}
+	    <ul>
+			{% for product in pagination.items %}
+				{% set on_sale = product.onSale %}
+
+        <li class="product">
+					<figure>
+					  <a href="/product/{{ product.url_name }}"><img src="{{ product.images.first.thumbnail('auto', 'auto')|default('http://placehold.it/580x352') }}" alt="{{ product.images.first.description }}" title="{{ product.images.first.title }}"/></a>
+					  <figcaption>
+						  <h3><a href="/product/{{ product.url_name }}" class="btn btn-default">{{ product.name }}</a></h3>
+							<h2>{{ product.price|currency }}</h2>
+							{% if on_sale %}
+								<h2 class="oldprice">{{ product.fullPrice|currency }}</h2>
+							{% endif %}
+						</figcaption>
+					</figure>
+        </li>
+
+			{% endfor %}
+	    </ul>
+		{% endpaginate %}		
+	</div>
+	</div>
+	
+</section>
+<section class="home-banner">
+	<div class="banner">
+		<h1>{{ theme.bannerText }}</h1>
+	</div>
+</section>
+<section id="featured-content">
+	<h1>How Does It Work?</h1>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
+	<a class="button call-to-action" href="/shop">Shop Now</a>
+</section>
+<section>
+	<div id="featured-collection">
+		<h1>Check These Out</h1>
+		{% set featuredCollection = 'featured'|collection %}
+		{% paginate featuredCollection.products by 4 %}
+			{% for product in pagination.items %}
+
+				{% set on_sale = product.onSale %}
+				<div class="product featured-product">
+					<a href="/product/{{ product.url_name }}">
+						<img src="{{ product.images.first.thumbnail('280', '280') }}" >
+					</a>
+					<h3><a href="/product/{{ product.url_name }}" class="btn btn-default">{{ product.name }}</a></h3>
+					<h2 class="price">{{ product.price|currency }}</h2>
+					{% if on_sale %}
+						<h2 class="oldprice">{{ product.fullPrice|currency }}</h2>
+					{% endif %}
+				</div>
+
+			{% endfor %}
+		{% endpaginate %}
+	</div>
+</section>

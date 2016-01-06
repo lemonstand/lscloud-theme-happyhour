@@ -1,0 +1,50 @@
+// @import "neat-helpers";
+
+$visual-grid: false;
+
+// Change the grid settings
+$column: 80px;
+$gutter: 20px;
+$grid-columns: 12;
+$max-width: 1200px;
+$min-width: 320px;
+
+// $mobile-portrait: new-breakpoint(max-width 480px 4);
+//
+// .element {
+//   @include media($mobile-portrait) {
+//     @include span-columns(4);
+//   }
+// }
+//
+// $mobile-landscape: new-breakpoint(max-width 480px 4);
+//
+// .element {
+//   @include media($mobile-landscape) {
+//     @include span-columns(4);
+//   }
+// }
+//
+// $tablet-portrait: new-breakpoint(max-width 480px 4);
+//
+// .element {
+//   @include media($tablet-portrait) {
+//     @include span-columns(4);
+//   }
+// }
+//
+// $tablet-landscape: new-breakpoint(max-width 480px 4);
+//
+// .element {
+//   @include media($tablet-landscape) {
+//     @include span-columns(4);
+//   }
+// }
+//
+// $desktop-hd: new-breakpoint(max-width 480px 4);
+//
+// .element {
+//   @include media($desktop-hd) {
+//     @include span-columns(4);
+//   }
+// }

@@ -1,0 +1,155 @@
+---
+description: 'Default Template'
+---
+<!DOCTYPE html>
+<html>
+<head>
+  {{ code_block('setup') }}
+
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="Description" content="{{ page.description }}"/>
+  <meta name="Keywords" content="{{ page.keywords }}"/>
+  <link rel="icon" type="image/png" href="{{ theme.faviconImage.thumbnail('16', '16') }}"/>
+
+  <title>{{ page.title }}</title>
+
+  <link rel="stylesheet" type="text/css" href="/cms/core.css">
+  <link rel="stylesheet" type="text/css" href="{{ 'stylesheets/main.css'|theme_resource }}">
+  <link rel="stylesheet" type="text/css" href="{{ 'stylesheets/responsive.css'|theme_resource }}">
+
+  <script type="text/javascript" src="{{ 'scripts/jquery.js'|theme_resource }}"></script>
+  <script type="text/javascript" src="{{ 'scripts/app.js'|theme_resource }}"></script>
+  <script type="text/javascript" src="/cms/core.js"></script>
+
+</head>
+  <header>
+    <div id="header-wrap">
+    <nav>
+
+      <div id="logo">
+        <a href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto', 'auto') }}" alt="" class="logo"></a>
+      </div>
+
+      <ul id="hamburger">
+        <li class="hamburger-dropdown">
+          <a href="#">☰</a>
+          <ul>
+            {% if customer %}
+              <li>
+                <a href="/profile">Your Account</a>
+              </li>
+              <li>
+                <a href="/orders">Your orders</a>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="/sign-in">Login</a>
+              </li>
+            {% endif %}
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About us</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+      <ul id="web-nav">
+        <li class="search-bar">
+          {{ open_form({'class': 'search', 'method': 'get', 'action': site_url('search')}) }}
+            <input type="text" name="query" value="{{query|unescape}}" placeholder="Search store&hellip;"/>
+          {{ close_form() }}
+        </li>
+        <li class="dropdown">
+          <a>Shop ▾</a>
+          {% tree categories %}
+          <ul>
+            <li><a href="/shop">All items</a></li>
+            {% for category in tree.items %}
+            <li>
+              <a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+              {% branch category.children %}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endtree %}
+        </li>
+        {% if customer %}
+          <li class="dropdown">
+            <a href="/profile">Your Account ▾</a>
+            <ul>
+              <li>
+                <a href="/orders">Your orders</a>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            </ul>
+          </li>
+        {% else %}
+          <li>
+            <a href="/sign-in">Login</a>
+          </li>
+        {% endif %}
+        <li id="mini-cart">{{ partial('shop-minicart') }}</li>
+      </ul>
+    </nav>
+    <nav id="mobile-nav">
+      <ul class="shop-nav">
+        <li class="dropdown">
+          <a>Shop ▾</a>
+          {% tree categories %}
+          <ul>
+            <li><a href="/shop">All items</a></li>
+            {% for category in tree.items %}
+            <li>
+              <a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+              {% branch category.children %}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endtree %}
+        </li>
+        <li class="search-bar">
+          {{ open_form({'class': 'search', 'method': 'get', 'action': site_url('search')}) }}
+            <input type="text" name="query" value="{{query|unescape}}" placeholder="Search store&hellip;"/>
+          {{ close_form() }}
+        </li>
+      </ul>
+      <ul>
+        <li id="mini-cart">{{ partial('shop-minicart') }}</li>
+      </ul>
+    </nav>
+
+  </div>
+  </header>
+  <body>
+    {{ code_block('breadcrumbs') }}
+    {{ page() }}
+  </body>
+  <footer>
+    <div class="wrapper">
+      <ul>
+        <li><a href="{{ site_url('contact') }}">Contact</a></li>
+        <li><a href="http://blog.lemonstand.com/">Blog</a></li>
+        <li><a href="{{ theme.linkedInUrl }}">Jobs</a></li>
+        <li><a href="{{ theme.twitterUrl }}">@LemonStand</a></li>
+      </ul>
+      <ul>
+        <li><a href="{{ site_url('about') }}">About</a></li>
+        <li><a href="{{ site_url('shop') }}">Shop</a></li>
+        <li><a href="{{ theme.facebookUrl }}">Facebook</a></li>
+        <li><a href="{{ site_url('privacy') }}">Privacy</a></li>
+      </ul>
+      <ul id="copyright">
+        <li><a href="https://lemonstand.com"><img src="{{ theme.footerLogo.thumbnail('auto', 'auto') }}" alt="" class="logo"></a></li>
+        <li>Made with &#127819; by <a href="https://lemonstand.com">LemonStand</a></li>
+      </ul>
+    </div>
+  </footer>
+</html>

@@ -1,0 +1,206 @@
+<table id="checkout-progress">
+  <tr>
+    <td class="current-step"><p>1</p></td>
+    <td><p>2</p></td>
+    <td><p>3</p></td>
+  </tr>
+  <tr>
+    <td>Shipping & Billing</td>
+    <td class="grey">Shipping Method</td>
+    <td class="grey">Pay</td>
+  </tr>
+</table>
+
+{% if customer %}
+	<h3 class="checkout-customer">Welcome, {{ customer.first_name }}!</h3>
+{% else %}
+	<h3 class="checkout-customer">You are checking out as a guest.
+		<label class="modal-trigger sign-in-modal" for="modal-1">Sign in</label>
+		<input class="modal-state" id="modal-1" type="checkbox" />
+		/
+		<label class="modal-trigger sign-in-modal" for="modal-2">Sign up</label>
+    <input class="modal-state" id="modal-2" type="checkbox" />
+    to checkout faster and save your info.
+	</h3>
+	{{ partial('partial-sign-in') }}
+	{{ partial('partial-sign-up') }}
+
+{% endif %}
+
+{{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
+
+<div class="wrapper">
+	<div class="billing-summary">
+		{{ flash() }}
+		<h2>Delivery & Billing Info</h2>
+		<hr>
+		<div class="billing-form">
+
+			<div class="billing-first-name">
+				<label for="billing_firstName">First Name *</label>
+				<input type="text" name="billingInfo[firstName]" id="billing_firstName" value="{{ billingInfo.firstName }}"/>
+				<span class="error"></span>
+			</div>
+			<div class="billing-last-name">
+				<label for="billing_lastName">Last Name *</label>
+				<input type="text" name="billingInfo[lastName]" id="billing_lastName" value="{{ billingInfo.lastName }}"/>
+				<span class="error"></span>
+			</div>
+			<div class="billing-email">
+				<label for="billing_email">E-mail Address *</label>
+				<input type="text" name="billingInfo[email]" id="billing_email" value="{{ billingInfo.email }}" />
+				<span class="error"></span>
+			</div>
+			<div class="billing-address">
+				<label for="billing_address">Address *</label>
+				<textarea id="billing_address" name="billingInfo[streetAddressLine1]">{{ billingInfo.streetAddressLine1 }}</textarea>
+				<span class="error"></span>
+			</div>
+			<div class="billing-city">
+				<label for="billing_city">City *</label>
+				<input type="text" name="billingInfo[city]" id="billing_city" value="{{ billingInfo.city }}"/>
+				<span class="error"></span>
+			</div>
+			<div class="billing-postal-code">
+				<label for="billing_postalCode">Zip Code *</label>
+				<input type="text" id="billing_postalCode" name="billingInfo[postalCode]" value="{{ billingInfo.postalCode }}"/>
+				<span class="error"></span>
+			</div>
+			<div class="billing-country">
+				<label for="billing_country">Country *</label>
+				<!-- The state selector updates automatically when the country changes. See app.js for the implementation details. 	-->        
+				<select id="billing_country" name="billingInfo[countryId]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.stateId }}">
+					{% for country in countries %}
+						<option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+					{% endfor %}
+				</select>
+				<span class="error"></span>
+			</div>
+			<div class="billing-state">
+				<label for="billing_state">State *</label>
+				<select id="billing_state" name="billingInfo[stateId]" data-ajax-refresh > 
+					{% set states = billingStates %}
+					{% set selected = billingInfo.stateId %}
+					{% for state in states %}
+							<option value="{{ state.id }}" {{ option_state(selected, state.id) }}>
+									{{ state.name }}
+							</option>
+					{% else %}
+							<option selected value="">- no states -</option>
+					{% endfor %}          
+				</select>
+				<span class="error"></span>
+			</div>
+			<div class="billing-phone">
+				<label for="billing_phone">Phone Number *</label>
+				<input type="text" name="billingInfo[phone]" id="billing_phone" value="{{ billingInfo.phone }}"/>
+				<span class="error"></span>
+			</div>
+			
+			<!-- See the onCopyBillingToShipping AJAX handler implementation on the Checkout page's AJAX tab -->
+			<div style="float: left;">
+			<input type="checkbox" name="c1" id="copy_billing_to_shipping"><h4>Copy Billing info to shipping</h4>
+			</div>
+			<!-- Hide when unchecked (See app.js for implementation) -->
+			<div class="shipping-form">
+				<h2>Shipping Information</h2>
+				<hr>
+				<div class="shipping-first-name">
+					<label for="shipping_firstName">First Name *</label>
+					<input type="text" name="shippingInfo[firstName]" id="shipping_firstName" value="{{ shippingInfo.firstName }}"/>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-last-name">
+					<label for="shipping_lastName">Last Name *</label>
+					<input type="text" name="shippingInfo[lastName]" id="shipping_lastName" value="{{ shippingInfo.lastName }}"/>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-email">
+					
+				</div>
+				<div class="shipping-address">
+					<label for="shipping_address">Address *</label>
+					<textarea name="shippingInfo[streetAddressLine1]" id="shipping_address">{{ shippingInfo.streetAddressLine1 }}</textarea>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-city">
+					<label for="shipping_city">City *</label>
+					<input type="text" name="shippingInfo[city]" id="shipping_city" value="{{ shippingInfo.city }}"/>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-postal-code">
+					<label for="shipping_postalCode">Zip Code *</label>
+					<input type="text" name="shippingInfo[postalCode]" id="shipping_postalCode" value="{{ shippingInfo.postalCode }}"/>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-country">
+					<label for="shipping_country">Country *</label>
+					<select id="shipping_country" name="shippingInfo[countryId]" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}" >
+						{% for country in countries %}
+							<option {{ option_state(shippingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+						{% endfor %}
+					</select>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-state">
+					<label for="shipping_state">State *</label>
+					<select id="shipping_state" name="shippingInfo[stateId]" data-ajax-refresh > 
+						{% set states = billingStates %}
+						{% set selected = billingInfo.stateId %}
+						{% for state in states %}
+								<option value="{{ state.id }}" {{ option_state(selected, state.id) }}>
+										{{ state.name }}
+								</option>
+						{% else %}
+								<option selected value="">- no states -</option>
+						{% endfor %} 
+					</select>
+					<span class="error"></span>
+				</div>
+				<div class="shipping-phone">
+					<label for="shipping_phone">Phone Number *</label>
+					<input type="text" name="shippingInfo[phone]" id="shipping_phone" value="{{ shippingInfo.phone }}"/>
+					<span class="error"></span>
+				</div>
+			</div>
+
+			<!-- See the onSetBillingAndShippignInfo AJAX handler implementation on the Checkout page's AJAX tab -->
+			<a class="button next" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=partial-checkout, #mini-cart=shop-minicart">Next step</a>
+
+		</div>	
+
+		<input type="hidden" name="step" value="billing_info,shipping_info"/>
+    <input type="hidden" name="nextStep" value="shipping_method" />
+
+	</div>
+
+	<div class="order-summary">
+		<h2>Order Summary</h2>
+		<hr>
+		<div class="order-summary-description">
+			{% if totals.discountTotal > 0 %}
+				<h3>Discount</h3>
+			{% endif %}	
+			<h3>Subtotal</h3>
+			{% if totals.totalShippingQuote %}
+			  <h3>Shipping</h3>
+			{% endif %}
+			<h3>Tax</h3>
+			<h2>Total</h2>
+		</div>
+		<div class="order-summary-amount">
+			{% if totals.discountTotal > 0 %}
+				<h3>{{ totals.discountTotal|currency }}</h3>
+			{% endif %}	
+			<h3>{{ totals.subtotal|currency }}</h3>
+			{% if totals.totalShippingQuote %}
+			  <h3>{{ totals.totalShippingQuote|currency }}</h3>
+			{% endif %}
+			<h3>{{ totals.totalTax|currency }}</h3>
+			<h2>{{ totals.total|currency }}</h2>
+		</div>
+	</div>
+
+</div>
+
+{{ close_form() }}
