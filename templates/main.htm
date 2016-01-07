@@ -14,7 +14,7 @@ description: 'Default Template'
   <meta name="Keywords" content="{{ page.keywords }}"/>
   <link rel="icon" type="image/png" href="{{ theme.faviconImage.thumbnail('16', '16') }}"/>
 
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} | {{ theme.storeTitle }}</title>
 
   <link rel="stylesheet" type="text/css" href="/cms/core.css">
   <link rel="stylesheet" type="text/css" href="{{ 'stylesheets/main.css'|theme_resource }}">
@@ -30,7 +30,7 @@ description: 'Default Template'
     <nav>
 
       <div id="logo">
-        <a href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto', 'auto') }}" alt="" class="logo"></a>
+        <a href="{{ site_url('/') }}"><img style="width:202px;" src="{{ theme.logoImage.thumbnail('37', 'auto') }}" alt="" class="logo"></a>
       </div>
 
       <ul id="hamburger">

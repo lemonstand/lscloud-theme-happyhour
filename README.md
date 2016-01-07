@@ -1,4 +1,4 @@
-# [Bones](https://bones.lemonstand.com) - A barebones LemonStand theme
+# Bones - A barebones LemonStand theme
 
 ## Running Gulp
 
