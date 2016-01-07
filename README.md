@@ -1,4 +1,4 @@
-# Bones - A barebones LemonStand theme
+# Happy Hour - A bourbon based cocktail theme
 
 ## Running Gulp
 
