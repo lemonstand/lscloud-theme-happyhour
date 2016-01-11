@@ -40,7 +40,7 @@ url: '/shop/:page?'
 							<meta itemprop="priceCurrency" content="USD" /> <!-- Should get currency code through variable -->
 							<meta itemprop="price" content="{{ product.price }}" />
 							<h2>{{ product.price|currency }}</h2>
-							{% if on_sale %}
+							{% if is_on_sale %}
 								<h2 class="oldprice">{{ product.fullPrice|currency }}</h2>
 							{% endif %}
 						{% else %}
