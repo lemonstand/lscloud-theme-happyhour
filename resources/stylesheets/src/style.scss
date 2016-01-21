@@ -12,7 +12,7 @@ $lightgrey: rgba(155,155,155,0.3);
 $grey: rgb(155, 155, 155);
 $headergrey: #F9F9F9;
 $white: #fff;
-$link: #0087C8;
+$link: #0084cd;
 $base-border-color: #DDD;
 $progress-green: #55A537;
 $red: #D20606;
@@ -73,6 +73,7 @@ p {
   line-height: 1.5em;
 	font-size: 1.125em;
 	font-weight: $light;
+	color: $black;
 }
 ul {
 	list-style: none;
@@ -85,6 +86,9 @@ ul {
 .blue {
 	color: $link;
 	text-decoration: underline;
+	&:hover {
+		color: shade($link, 20%);
+	}
 }
 span.error {
 	color: $red;
@@ -190,7 +194,7 @@ input[type="radio"] {
 	}
 	h3 {
     font-weight: $heavy;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0.5em 0 0.25em 0;
 	}
 	h2 {
     color: $grey;

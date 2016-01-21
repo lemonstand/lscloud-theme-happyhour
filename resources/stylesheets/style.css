@@ -33,12 +33,13 @@ a {
   text-decoration: none;
   color: #4a4a4a; }
   a:hover {
-    color: #0087C8; }
+    color: #0084cd; }
 
 p {
   line-height: 1.5em;
   font-size: 1.125em;
-  font-weight: 200; }
+  font-weight: 200;
+  color: #4a4a4a; }
 
 ul {
   list-style: none; }
@@ -48,8 +49,10 @@ ul {
     color: #4a4a4a; }
 
 .blue {
-  color: #0087C8;
+  color: #0084cd;
   text-decoration: underline; }
+  .blue:hover {
+    color: #006aa4; }
 
 span.error {
   color: #D20606;
@@ -94,13 +97,13 @@ span.error {
   background-color: #fff;
   border: 1px solid #9b9b9b;
   border-radius: 3px;
-  color: #0087C8;
+  color: #0084cd;
   font-weight: 700;
   padding: 0.75em 4em; }
   .continue-shopping:hover,
   .continue-shopping:focus {
-    border-color: #006ca0;
-    color: #006ca0; }
+    border-color: #006aa4;
+    color: #006aa4; }
 
 label {
   display: block;
@@ -149,7 +152,7 @@ input[type="radio"] {
 
 .product h3 {
   font-weight: 700;
-  margin: 0.5em 0 0.5em 0; }
+  margin: 0.5em 0 0.25em 0; }
 
 .product h2 {
   color: #9b9b9b;

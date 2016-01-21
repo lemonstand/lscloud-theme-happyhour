@@ -1,6 +1,22 @@
 {% set on_sale = product.onSale %}
 
   <div class="wrapper product-wrap" itemscope itemtype="http://schema.org/Product">
+
+    <!-- picture grid -->
+    <div class="product-image-grid">
+      <figure class="big-image">
+        <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.name }}"/>
+      </figure>
+      
+      {% if product.images.count > 1 %}
+      <ul>
+        {% for image in product.images %}
+          <li class="image-grid-item"><a href="{{ image.thumbnail(746, 'auto') }}"><img src="{{ image.thumbnail(367, 367) }}"/></a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
     <div id="product-form">
       <h1 class="fill-parent">{{ product.name }}</h1>
       <!-- <hr style="margin: .75em -23% .75em 0;"/> -->
@@ -105,7 +121,6 @@
         <input class="product-quantity" type="text" value="{{ quantity|default("1") }}" name="quantity">
         <input type="hidden" name="productId" value="{{ product.id }}"/>
         <a class="button next" id="product-add" href="#" >Add to Cart</a>
-        <a class="button next " id="product-added" href="#" disabled="disabled" style="display: none;">Added!</a>
 
         {% else %}
           <p>
@@ -122,21 +137,6 @@
 
       <time itemprop="releaseDate" datetime="{{ product.om('expected_availability_date', posted_options).format('%x') }}"></time>
 
-    </div>
-
-    <!-- picture grid -->
-    <div class="product-image-grid">
-      <figure class="big-image">
-        <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.name }}"/>
-      </figure>
-      
-      {% if product.images.count > 1 %}
-      <ul>
-        {% for image in product.images %}
-          <li class="image-grid-item"><a href="{{ image.thumbnail(746, 'auto') }}"><img src="{{ image.thumbnail(367, 367) }}"/></a></li>
-        {% endfor %}
-      </ul>
-      {% endif %}
     </div>
 
     <hr class="fill-parent">

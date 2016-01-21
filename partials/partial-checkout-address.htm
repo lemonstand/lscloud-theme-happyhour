@@ -99,10 +99,10 @@
 			
 			<!-- See the onCopyBillingToShipping AJAX handler implementation on the Checkout page's AJAX tab -->
 			<div style="float: left;">
-			<input type="checkbox" name="c1" id="copy_billing_to_shipping"><h4>Copy Billing info to shipping</h4>
+			<input type="checkbox" name="c1" id="copy_billing_to_shipping" checked><h4>Use billing info for shipping</h4>
 			</div>
 			<!-- Hide when unchecked (See app.js for implementation) -->
-			<div class="shipping-form">
+			<div class="shipping-form" style="display:none;">
 				<h2>Shipping Information</h2>
 				<hr>
 				<div class="shipping-first-name">
@@ -165,7 +165,8 @@
 			</div>
 
 			<!-- See the onSetBillingAndShippignInfo AJAX handler implementation on the Checkout page's AJAX tab -->
-			<a class="button next" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=partial-checkout, #mini-cart=shop-minicart">Next step</a>
+			<a id="billing-continue" class="button next" href="#">Next step</a>
+			<!-- <a id="billing-continue" class="button next" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=partial-checkout, #mini-cart=shop-minicart">Next step</a> -->
 
 		</div>	
 

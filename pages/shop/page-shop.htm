@@ -9,21 +9,24 @@ url: '/shop/:page?'
 <div class="wrapper">
 <h1>{{ page.title }}</h1>
 {% tree categories %}
-<ul class="categories">
-	{% for category in tree.items %}
-	<li>
-		<h3><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></h3>
-		<hr>
-		{% branch category.children %}
-	</li>
-	{% endfor %}
-</ul>
+<nav style="float: left; width: auto; margin-top: 1em"><ul><li class="categories">
+	<a href="#">Categories ▾</a>
+	<ul>
+		{% for category in tree.items %}
+		<li>
+			<h3><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></h3>
+			
+			{% branch category.children %}
+		</li>
+		{% endfor %}
+	</ul>
+</li></ul></nav>
 {% endtree %}
 {{ open_form() }}
 	{% paginate products by 12 %}
 	<div itemtype="http://schema.org/ItemList">
 
-		<ul>
+		<ul style="clear: both;">
 			{% for product in pagination.items %}
 
 				{% set is_on_sale = product.onSale %}
