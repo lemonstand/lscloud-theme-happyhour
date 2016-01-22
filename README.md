@@ -1,4 +1,4 @@
-# Happy Hour - A bourbon based theme
+# Happy Hour - A beautiful theme that uses Gulp, Sass, and  the lovely Bourbon framework
 
 ## Running Gulp
 
