@@ -1,4 +1,4 @@
-# Happy Hour - A bourbon based cocktail theme
+# Happy Hour - A bourbon based theme
 
 ## Running Gulp
 
