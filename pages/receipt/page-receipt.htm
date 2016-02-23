@@ -9,7 +9,7 @@ url: '/receipt/:paymenthash'
 {% if invoice %}
 <div id="receipt" class="wrapper">
   <h1>Thanks For Your Order!</h1>
-  <p>You're order number is <strong>{{ invoice.order.number }}</strong>. Look for a confirmation email soon. Questions?</p>
+  <p>Your order number is <strong>{{ invoice.order.number }}</strong>. Look for a confirmation email soon. Questions?</p>
   <p>Customer Service: support@lemonstand.com or 1-855-332-0555</p>
   <p><strong>Order Date: </strong> {{ invoice.order.created_at.format('M jS, Y') }}</p>
   <p><strong>Payment method: </strong> {{ payment.guessPaymentMethod().name }}</p>
