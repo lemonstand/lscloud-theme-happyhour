@@ -590,6 +590,9 @@ img {
 		}
 		.cart-item-price {
 			@include span-columns(1);
+			h2 {
+				margin-bottom: 0;
+			}
 			@include media(max-width $mobile) {
 				@include span-columns(3);
 		    font-size: 12px;
@@ -637,6 +640,12 @@ img {
 				margin: 0;
 			}
 
+		}
+	}
+	.cart-discount {
+		font-size: 0.75em;
+		h2 {
+			margin-bottom: 0;
 		}
 	}
 	.button {

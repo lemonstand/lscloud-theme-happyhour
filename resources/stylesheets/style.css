@@ -1,9 +1,7 @@
 html {
   box-sizing: border-box; }
 
-*,
-*::after,
-*::before {
+*, *::after, *::before {
   box-sizing: inherit; }
 
 body {
@@ -78,8 +76,7 @@ span.error {
   color: #fff;
   font-weight: 700;
   padding: 0.75em 1.5em; }
-  .next:hover,
-  .next:focus {
+  .next:hover, .next:focus {
     background-color: #c09c28;
     color: #fff; }
 
@@ -88,8 +85,7 @@ span.error {
   color: #fff;
   font-weight: 700;
   padding: 1.5em 1.5em; }
-  .call-to-action:hover,
-  .call-to-action:focus {
+  .call-to-action:hover, .call-to-action:focus {
     background-color: #c09c28;
     color: #fff; }
 
@@ -100,8 +96,7 @@ span.error {
   color: #0084cd;
   font-weight: 700;
   padding: 0.75em 4em; }
-  .continue-shopping:hover,
-  .continue-shopping:focus {
+  .continue-shopping:hover, .continue-shopping:focus {
     border-color: #006aa4;
     color: #006aa4; }
 

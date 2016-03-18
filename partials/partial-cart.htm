@@ -13,10 +13,10 @@
 				{% set description = item.optionsString() %}
 				{% if description %}<p>{{ description|unescape }}</p>{% endif %}
 			</td>
-			<td class="cart-item-price"><h2>{{ item.fullPrice()|currency }}</h2></td> 
 			{% if cart.getDiscountTotal() > 0 %}
-				<td><h2>{{ item.totalDiscount()|currency }}</h2></td>
-				<td><h2>{{ item.price()|currency }}</h2></td>
+				<td class="cart-item-price"><h2>{{ item.price()|currency }}</h2>-{{ cart.getDiscountTotal()|currency }}</td>
+			{% else %}
+				<td class="cart-item-price"><h2>{{ item.fullPrice()|currency }}</h2></td>
 			{% endif %}
 			<td class="cart-item-total"><h2>{{ item.total()|currency }}</h2></td>
 			<td class="cart-quantity">
@@ -30,18 +30,16 @@
 		<tr><td><hr></td></tr>
 		{% endfor %}
 		<tr><td><input type="text" id="coupon" name="coupon" value="{{ coupon_code }}" placeholder="Coupon code" /><a href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=partial-cart, #mini-cart=shop-minicart">&nbsp; &#8635; Update cart</a></td></tr>
+		{% if totals.discountTotal > 0 %}
+			<tr><td class="cart-discount"><h2>Discount: <strong>{{ totals.discountTotal|currency }}</strong></h2></td></tr>
+		{% endif %}	
 		<tr><td class="cart-subtotal"><h2>Subtotal: <strong>{{ totals.total|currency }}</strong></h2></td></tr>
 		<tr><td>
 			<a class="button continue-shopping cart-continue" href="{{ site_url('shop') }}">Continue shopping</a>
-			<a class="button next" href="{{ site_url('/checkout') }}">Checkout</a>
+			<a class="button next" id="checkout" href="{{ site_url('/checkout') }}">Checkout</a>
 		</td></tr>
 		<tr class="cart-continue-mobile"><td><a class="button continue-shopping" href="{{ site_url('shop') }}">Continue shopping</a></td></tr>
 	</table>
-
-	{% if totals.discountTotal > 0 %}
-		<h4><strong>Coupon discount:</strong> {{ totals.discountTotal|currency }}</h4>
-	{% endif %}	
-
 
 {% else %}
 	<div class="wrapper">
