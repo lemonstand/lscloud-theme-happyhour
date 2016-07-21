@@ -28,19 +28,30 @@ url: /sign-in
 	<section>
 	{{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : ''}) }}
 		<h3>Register</h3>
-		<label for="signup[first_name]">First Name</label><input name="signup[first_name]" id="signup[first_name]" type="text" class="text required"/>
+		<label for="signup[first_name]">First Name *</label><input name="signup[first_name]" id="signup[first_name]" type="text" class="text required"/>
 		<span class="error"></span>
-		<label for="signup[last_name]">Last Name</label><input name="signup[last_name]" id="signup[last_name]" type="text" class="text required"/>
+		<label for="signup[last_name]">Last Name *</label><input name="signup[last_name]" id="signup[last_name]" type="text" class="text required"/>
 		<span class="error"></span>
-		<label for="signup[email]">Email</label><input id="signup[email]" type="text" name="signup[email]" class="text required"/>
+		<label for="signup[email]">Email *</label><input id="signup[email]" type="text" name="signup[email]" class="text required"/>
+
 		<span class="error"></span>
-		<label for="signup[password]">Password</label><input name="signup[password]" id="signup[password]" type="password" class="text required"/>
+		<label for="signup[password]">Password *</label><input name="signup[password]" id="signup[password]" type="password" class="text required"/>
 		<span class="error"></span>
-		<label for="signup[password_confirmation]">Confirm Password</label><input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="text required"/>
+		<label for="signup[password_confirmation]">Confirm Password *</label><input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="text required"/>
 		<span class="error"></span>
+
+		<label for="accepts_marketing">Recieve promotional emails</label><input id="accepts_marketing" type="checkbox" name="accepts_marketing" checked/>
+
+
+
 		<input type="hidden" name="autologin" value="1" />
 		<input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
 		<input type="submit" class="button next" value="Sign Up"/>
+
+
+
+
+
 	{{ close_form() }}
 	</section>
 </div>

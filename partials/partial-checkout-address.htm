@@ -46,6 +46,10 @@
 				<input type="text" name="billingInfo[lastName]" id="billing_lastName" value="{{ billingInfo.lastName }}"/>
 				<span class="error"></span>
 			</div>
+		
+			<div style="float: left;">
+			<input type="checkbox" name="accepts_marketing" id="accepts_marketing" checked><h4>Recieve promotional emails</h4>
+			</div>
 			<div class="billing-email">
 				<label for="billing_email">E-mail Address *</label>
 				<input type="text" name="billingInfo[email]" id="billing_email" value="{{ billingInfo.email }}" />
@@ -56,6 +60,7 @@
 				<textarea id="billing_address" name="billingInfo[streetAddressLine1]">{{ billingInfo.streetAddressLine1 }}</textarea>
 				<span class="error"></span>
 			</div>
+
 			<div class="billing-city">
 				<label for="billing_city">City *</label>
 				<input type="text" name="billingInfo[city]" id="billing_city" value="{{ billingInfo.city }}"/>
@@ -99,7 +104,10 @@
 			
 			<!-- See the onCopyBillingToShipping AJAX handler implementation on the Checkout page's AJAX tab -->
 			<div style="float: left;">
-			<input type="checkbox" name="c1" id="copy_billing_to_shipping" checked><h4>Use billing info for shipping</h4><br /><input type="checkbox" name="c2" id="recieve_promotional_emails" checked><h4>Recieve promotional emails</h4>
+			<input type="checkbox" name="c1" id="copy_billing_to_shipping" checked><h4>Use billing info for shipping</h4><br />
+
+			
+			<input type="checkbox" name="accepts_marketing" id="accepts_marketing" checked><h4>Recieve promotional emails</h4>
 			</div>
 			<!-- Hide when unchecked (See app.js for implementation) -->
 			<div class="shipping-form" style="display:none;">
