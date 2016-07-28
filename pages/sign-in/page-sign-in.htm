@@ -20,7 +20,7 @@ url: /sign-in
 			<a class="right blue" href="{{ site_url('/password-restore') }}">Forgot?</a>
 		</h4>
 		<span class="error"></span>
-		<input type="submit" class="button next" value="Sign In"/>
+		<input type="submit" class="button next" value="Sign In" style="float: right"/>
 		<input type="hidden" name="redirect" value="{{ site_url(root_url('/')) }}"/>
 	{{ close_form() }}
 	</section>
@@ -33,25 +33,16 @@ url: /sign-in
 		<label for="signup[last_name]">Last Name *</label><input name="signup[last_name]" id="signup[last_name]" type="text" class="text required"/>
 		<span class="error"></span>
 		<label for="signup[email]">Email *</label><input id="signup[email]" type="text" name="signup[email]" class="text required"/>
-
 		<span class="error"></span>
 		<label for="signup[password]">Password *</label><input name="signup[password]" id="signup[password]" type="password" class="text required"/>
 		<span class="error"></span>
 		<label for="signup[password_confirmation]">Confirm Password *</label><input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="text required"/>
 		<span class="error"></span>
-
-		<label for="accepts_marketing">Recieve promotional emails</label><input id="accepts_marketing" type="checkbox" name="accepts_marketing" checked/>
-
-
-
+        	<input id="accepts_marketing" type="checkbox" name="accepts_marketing" checked="" style="width: auto;">
+        	<label for="accepts_marketing" style="display: inline-block; width: auto;">Recieve promotional emails</label>
 		<input type="hidden" name="autologin" value="1" />
 		<input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
 		<input type="submit" class="button next" value="Sign Up"/>
-
-
-
-
-
 	{{ close_form() }}
 	</section>
 </div>
