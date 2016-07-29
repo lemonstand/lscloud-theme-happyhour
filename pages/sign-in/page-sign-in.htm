@@ -39,10 +39,10 @@ url: /sign-in
 		<label for="signup[password_confirmation]">Confirm Password *</label><input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="text required"/>
 		<span class="error"></span>
         	<input id="accepts_marketing" type="checkbox" name="accepts_marketing" checked="" style="width: auto;">
-        	<label for="accepts_marketing" style="display: inline-block; width: auto;">Recieve promotional emails</label>
+        	<label for="accepts_marketing" style="display: inline-block; width: auto;">Receive promotional emails</label>
 		<input type="hidden" name="autologin" value="1" />
 		<input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
-		<input type="submit" class="button next" value="Sign Up"/>
+		<input type="submit" class="button next" value="Sign Up" style="float: right;"/>
 	{{ close_form() }}
 	</section>
 </div>
