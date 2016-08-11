@@ -7,10 +7,12 @@ name: 'Blog Post'
 url: '/blog/:slug'
 ---
 <div class="wrapper">
-    <section>
-        <h1>{{ post.title }}</h1>
-        <strong>In {{ post.type }} | {{ post.published_on | date("F j, Y") }}</strong> 
-        {{ post.body | unescape }}
-        <p>– {{ post.author_name }}</p>
-    </section>
+    <em class="twelve columns">In {{ post.type }} | {{ post.published_on | date("F j, Y") }}</em> 
+    {{ post.body | unescape }}
+    <p class="twelve columns">– {{ post.author_name }}</p>
+    <img src="{{ post.profile_image.thumbnail(252, 'auto')|default('http://placehold.it/1000x365') }}" height="200" width="200"/>
+    {{ post.user.user_bio|unescape }}
+    <a href="{{ post.user.getSocialLink("facebook") }}"><img src="{{ 'images/facebook.png'|theme_resource }}"/></a>
+    <a href="{{ post.user.getSocialLink("twitter") }}"><img src="{{ 'images/twitter.png'|theme_resource }}"/></a>
+    <a href="{{ post.user.getSocialLink("instagram") }}"><img src="{{ 'images/instagram.png'|theme_resource }}"/></a>
 </div>
