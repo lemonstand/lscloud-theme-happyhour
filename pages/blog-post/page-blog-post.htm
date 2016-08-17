@@ -17,9 +17,9 @@ url: '/blog/:slug'
 	    <img class="img-circle" src="{{ post.profile_image.thumbnail(252, 'auto')|default('http://placehold.it/100x100') }}" height="100" width="100"/>
 	    <strong>{{ post.author_name }}</strong>
 	    <span class="social-links">
-		    <a href="{{ post.user.getSocialLink("facebook") }}"><img src="{{ 'images/facebook.png'|theme_resource }}"/></a>
-		    <a href="{{ post.user.getSocialLink("twitter") }}"><img src="{{ 'images/twitter.png'|theme_resource }}"/></a>
-		    <a href="{{ post.user.getSocialLink("instagram") }}"><img src="{{ 'images/instagram.png'|theme_resource }}"/></a>
+		    <a href="{{ post.user.getSocialLink("Facebook") }}"><img src="{{ 'images/facebook.png'|theme_resource }}"/></a>
+		    <a href="{{ post.user.getSocialLink("Twitter") }}"><img src="{{ 'images/twitter.png'|theme_resource }}"/></a>
+		    <a href="{{ post.user.getSocialLink("Instagram") }}"><img src="{{ 'images/instagram.png'|theme_resource }}"/></a>
 	    </span>
 		<div class="author-bio">
 			{{ post.user.user_bio|unescape }}
