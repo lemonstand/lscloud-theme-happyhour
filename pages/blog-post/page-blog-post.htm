@@ -6,11 +6,26 @@ published: true
 name: 'Blog Post'
 url: '/blog/:slug'
 ---
+
+<!-- BLOG -->
 <div class="wrapper">
-    <section>
-        <h1>{{ post.title }}</h1>
-        <strong>In {{ post.type }} | {{ post.published_on | date("F j, Y") }}</strong> 
-        {{ post.body | unescape }}
-        <p>– {{ post.author_name }}</p>
-    </section>
+    <img src="{{ post.featured_image.thumbnail(1000, 'auto')|default('http://placehold.it/1000x365') }}" width="1180"/>
+    <em class="twelve columns">In {{ post.type }} | {{ post.published_on | date("F j, Y") }}</em> 
+    {{ post.body | unescape }}
+    <p class="twelve columns">– {{ post.author_name }}</p>
+	<!-- BIO -->
+	<div class="bio-container">
+	    <img class="img-circle" src="{{ post.profile_image.thumbnail(252, 'auto')|default('http://placehold.it/100x100') }}" height="100" width="100"/>
+	    <strong>{{ post.author_name }}</strong>
+	    {{ post.user.getSocialLinks() }}
+		<div class="author-bio">
+			{{ post.user.user_bio|unescape }}
+		</div>
+	</div>
 </div>
+
+
+
+
+
+
