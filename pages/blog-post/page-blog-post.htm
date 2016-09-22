@@ -9,13 +9,17 @@ url: '/blog/:slug'
 
 <!-- BLOG -->
 <div class="wrapper">
-    <img src="{{ post.featured_image.thumbnail(1000, 'auto')|default('http://placehold.it/1000x365') }}" width="1180" alt="{{ post.featured_image.alt }}"/>
+    {% if featured_image %}
+    	<img src="{{ featured_image.thumbnail(1000, 'auto')|default('http://placehold.it/1000x365') }}" width="1180" alt="{{ featured_image.alt }}"/>
+    {% endif %}    
     <em class="twelve columns">In {{ post.type }} | {{ post.published_on | date("F j, Y") }}</em> 
     {{ post.body | unescape }}
 	<!-- BIO -->
 	<div class="bio-container">
-	    <img class="img-circle" src="{{ post.profile_image.thumbnail(252, 'auto')|default('http://placehold.it/100x100') }}" height="100" width="100"/>
-	    <strong>{{ post.author_name }}</strong>
+	{% if profile_image %}
+	    <img class="img-circle" src="{{ profile_image.thumbnail(252, 'auto')|default('http://placehold.it/100x100') }}" height="100" width="100" alt="{{ profile_image.alt }}"/>
+	{% endif %}	    
+	<strong>{{ post.author_name }}</strong>
 	    {{ post.user.getSocialLinks() }}
 		<div class="author-bio">
 			{{ post.user.user_bio|unescape }}
