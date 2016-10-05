@@ -53,8 +53,14 @@
 				<span class="error"></span>
 			</div>
 			<div class="billing-address">
-				<label for="billing_address">Address *</label>
+				<label for="billing_address">Address line 1 *</label>
 				<textarea id="billing_address" name="billingInfo[streetAddressLine1]">{{ billingInfo.streetAddressLine1 }}</textarea>
+				<span class="error"></span>
+			</div>
+
+			<div class="billing-address">
+				<label for="billing_address">Address line 2 (optional)</label>
+				<textarea id="billing_address" name="billingInfo[streetAddressLine2]">{{ billingInfo.streetAddressLine2 }}</textarea>
 				<span class="error"></span>
 			</div>
 
