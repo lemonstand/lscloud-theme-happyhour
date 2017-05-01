@@ -1,8 +1,18 @@
 {
-  "name": "lscloud-theme-bones",
+  "name": "bones",
   "version": "1.0.0",
   "description": "A base them for LemonStand 2",
   "main": "theme.yaml",
+  "lemonstand" : {
+    "code":"bones",
+    "type": "theme",
+    "options": "options.json",
+    "demo" : "https//bones.lemonstand.com",
+    "screenshot" : {
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-bones/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-bones/master/resources/screenshots/large-square.png"
+    }
+  },  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
