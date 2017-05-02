@@ -1,0 +1,51 @@
+{
+  "settings": {
+    "storeTitle": {
+      "type": "text",
+      "title": "Title of your Store",
+      "default": "Happy Hour"
+    },
+    "logoImage": {
+      "type": "image",
+      "title": "Logo Image",
+      "default": "@images/happyhour-logo.png",
+      "comment": "Upload your logo! Recommended height of 40px."
+    },
+    "faviconImage": {
+      "type": "image",
+      "title": "Favicon Image",
+      "default": "@images/favicon.png",
+      "comment": "Upload your favicon! Recommended dimmensions of 16px by 16px. You must use a .png file."
+    },
+    "bannerText": {
+      "type": "text",
+      "title": "Banner Text",
+      "default": "New Late Night Delivery Hours",
+      "comment": "Text used for the homepage banner."
+    },
+    "facebookUrl": {
+      "type": "text",
+      "title": "Facebook URL",
+      "default": "http://facebook.com/lemonstand"
+    },
+    "twitterUrl": {
+      "type": "text",
+      "title": "Twitter URL",
+      "default": "http://twitter.com/lemonstand"
+    },
+    "linkedInUrl": {
+      "type": "text",
+      "title": "LinkedIn URL",
+      "default": "http://www.linkedin.com/company/lemonstand"
+    },
+    "searchIcon": {
+      "type": "image",
+      "title": "Search Icon",
+      "default": "@images/search.png",
+      "comment": "Upload a search icon or stick with the default."
+    }
+  },
+  "pages": {
+    "404": "404"
+  }
+}
