@@ -1,4 +1,4 @@
-{{% if paymentMethod is defined %}
+{% if paymentMethod is defined %}
     {% if paymentMethod.isLegacy() %}
         <p>
             This payment method type is no longer supported. Create a standard or custom method.
@@ -43,7 +43,7 @@
     <p>
         This payment method has no payment form.
     </p>
-    </p>>
+    </p>
         <a class="secondary button" href="{{ site_url('shop') }}">Continue shopping</a>
     </p>
 {% endif %}
