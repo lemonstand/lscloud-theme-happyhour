@@ -1,14 +1,14 @@
 {
-  "name": "bones",
+  "name": "Happy Hour",
   "version": "1.0.0",
-  "description": "A base them for LemonStand 2",
+  "description": "Happy Hour is a beautiful, mobile-friendly theme that supports all the core LemonStand features: product options, related products, product categories, product reviews, and much more! Happy Hour is different from some of our older themes. It is the first one built using our new standardized approach to theme developmentand. We used a set of modern, lightweight, easy-to-use, and open source tools and prebuilt components for building LemonStand themes, including Sass, Bourbon and Neat, Bitters and Refills, and Gulp.",
   "main": "theme.yaml",
   "lemonstand" : {
     "code":"bones",
     "type": "theme",
     "options": "options.json",
     "demo" : "https//bones.lemonstand.com",
-    "screenshot" : {
+    "screenshots" : {
       "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-bones/master/resources/screenshots/tiny-square.png",
       "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-bones/master/resources/screenshots/large-square.png"
     }
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git://github.com/lemonstand/lscloud-theme-bones.git"
   },
-  "author": "LemonStand",
+  "author": "LemonStand <support@lemonstand.com> (http://docs.lemonstand.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lemonstand/lscloud-theme-bones/issues"
