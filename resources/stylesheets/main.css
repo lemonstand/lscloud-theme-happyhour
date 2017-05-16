@@ -2191,3 +2191,80 @@ strong {
 
 .social-links .icon-twitter {
   background: url("../images/social.png") 32px 0; }
+
+/* Card Form */
+
+.ls-card-form {
+    width: 100%;
+}
+
+.card-form-expiry-outer label {
+    display: inherit;
+}
+
+.card-table {
+    font-size: 15px;
+    background-color: #F1F1F1;
+}
+
+.card-table th {
+    padding: 10px;
+}
+
+.card-table a,
+.card-table a:hover,
+.card-table a:focus {
+    text-decoration: underline;
+}
+
+.card-form-close {
+    display: none;
+}
+
+.card-form-open {
+    display: block;
+}
+
+.saved-card-selector {
+    width: 100%;
+}
+
+.ls-card-form .card-form-input {
+  background-color: white;
+  color: #8d8d8d;
+  letter-spacing: 1px;
+  border: 1px solid #DCDCDC;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: inherit;
+}
+
+.ls-card-form .card-form-input:focus,
+.ls-card-form .card-form-input:hover {
+  border-color: inherit;
+  background-color: white;
+}
+
+.ls-card-form .card-form-input::-webkit-input-placeholder {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+ 
+.ls-card-form .card-form-input:-moz-placeholder { /* Firefox 18- */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+ 
+.ls-card-form .card-form-input::-moz-placeholder {  /* Firefox 19+ */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+ 
+.ls-card-form .card-form-input:-ms-input-placeholder {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
