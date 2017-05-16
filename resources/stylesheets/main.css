@@ -2192,6 +2192,23 @@ strong {
 .social-links .icon-twitter {
   background: url("../images/social.png") 32px 0; }
 
+.form-row {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-col-sm {
+    width: 50%
+}
+
+.form-col-right {
+  float: right;
+}
+
+.form-col-left {
+  float: left;
+}
+
 /* Card Form */
 
 .ls-card-form {
@@ -2204,7 +2221,7 @@ strong {
 
 .card-table {
     font-size: 15px;
-    background-color: #F1F1F1;
+    background-color: #F9F9F9;
 }
 
 .card-table th {

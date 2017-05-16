@@ -1,7 +1,9 @@
 <div>
-    <div>
-        <div class="group">
-            <h2>Saved Cards</h2>
+    <div class="form-row">
+        <h2>Saved Cards</h2>
+    </div>
+    <div class="form-col-sm form-col-left">
+        <div class="form-row">
             <hr>
             {% if customer.cards|length %}
             <table class="card-table">
@@ -33,12 +35,12 @@
                 </p>
             {% endif %}
         </div>
-        <div class="group">
-            <input type="button" id="add-card" value="Add Card">
+        <div class="form-row">
+            <input type="button" class="button next" id="add-card" value="Add Card">
         </div>
         {{ flash() }}
     </div>
-    <div class="group">
+    <div class="form-col-sm form-col-right">
         {% for card in customer.cards %}
             {{ partial('shop-customerprofile-edit-card-form', {'card' : card}) }}
         {% endfor %}
