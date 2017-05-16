@@ -2789,8 +2789,8 @@ strong {
 .form-col-left {
     float: left;
 }
-
 /* Card Form */
+
 .ls-card-form {
     width: 100%;
 }
@@ -2820,37 +2820,48 @@ strong {
 }
 .ls-card-form .card-form-input {
     background-color: white;
-    color: #8d8d8d;
+    color: #4A4A4A;
     letter-spacing: 1px;
-    border: 1px solid;
+    border: 1px solid #DDD;
     box-shadow: none;
-    border-radius: 0;
-    font-family: inherit;
+    border-radius: 3px;
+    font-family: Helvetica Neue, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
 }
-.ls-card-form .card-form-input:focus,
+
 .ls-card-form .card-form-input:hover {
-    border-color: inherit;
-    background-color: white;
+    border-color: #B1B1B1;
 }
+
+.ls-card-form .card-form-input:focus {
+  border-color: #F0C332;
+  background-color: inherit;
+}
+
 .ls-card-form .card-form-input::-webkit-input-placeholder {
     font-family: inherit;
+    font-weight: inherit;
     letter-spacing: inherit;
     color: inherit;
 }
 .ls-card-form .card-form-input:-moz-placeholder {
     /* Firefox 18- */
     font-family: inherit;
+    font-weight: inherit;
     letter-spacing: inherit;
     color: inherit;
 }
 .ls-card-form .card-form-input::-moz-placeholder {
     /* Firefox 19+ */
     font-family: inherit;
+    font-weight: inherit;
     letter-spacing: inherit;
     color: inherit;
 }
 .ls-card-form .card-form-input:-ms-input-placeholder {
     font-family: inherit;
+    font-weight: inherit;
     letter-spacing: inherit;
     color: inherit;
 }
