@@ -1,10 +1,10 @@
 <div>
     <div class="form-row">
         <h2>Saved Cards</h2>
+        <hr>
     </div>
     <div class="form-col-sm form-col-left">
         <div class="form-row">
-            <hr>
             {% if customer.cards|length %}
             <table class="card-table">
                 {% for card in customer.cards %}
