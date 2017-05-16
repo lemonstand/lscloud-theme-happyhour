@@ -2815,9 +2815,6 @@ strong {
 .card-form-open {
     display: block;
 }
-.saved-card-selector {
-    width: 100%;
-}
 .ls-card-form .card-form-input {
     background-color: white;
     color: #4A4A4A;
