@@ -2830,6 +2830,18 @@ strong {
     font-size: 16px;
 }
 
+.ls-card-form .error {
+  margin-top: 5px;
+}
+
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
+  background-color: #F0C332;
+  letter-spacing: inherit;
+  font-weight: 700;
+  color: #FFF;
+}
+
 .ls-card-form .card-form-input:hover {
     border-color: #B1B1B1;
 }
