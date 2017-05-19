@@ -2889,3 +2889,7 @@ strong {
 .ls-card-form .valid-highlight:focus {
     border-color: #3DE000 !important;
 }
+.add-card-form h2,
+.edit-card-form h2 {
+    margin-top: 0px;
+}
