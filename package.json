@@ -9,8 +9,8 @@
     "options": "options.json",
     "demo" : "https//bones.lemonstand.com",
     "screenshots" : {
-      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-bones/master/resources/screenshots/tiny-square.png",
-      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-bones/master/resources/screenshots/large-square.png"
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/large-square.png"
     }
   },
   "scripts": {
