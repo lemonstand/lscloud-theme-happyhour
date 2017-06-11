@@ -1,7 +1,7 @@
 {
   "name": "Happy Hour",
   "version": "1.0.0",
-  "description": "Happy Hour is a beautiful, mobile-friendly theme that supports all the core LemonStand features: product options, related products, product categories, product reviews, and much more! Happy Hour is different from some of our older themes. It is the first one built using our new standardized approach to theme developmentand. We used a set of modern, lightweight, easy-to-use, and open source tools and prebuilt components for building LemonStand themes, including Sass, Bourbon and Neat, Bitters and Refills, and Gulp.",
+  "description": "Happy Hour is a beautiful, mobile-friendly theme that is versatile enough for many different types of online retailers. One thing that makes it unique is that it features a single product at the top of the homepag. Developer friendly, it uses a set of modern, lightweight, easy-to-use, and open source tools and prebuilt components for building LemonStand themes, including Sass, Bourbon and Neat, Bitters and Refills, and Gulp.",
   "main": "theme.yaml",
   "lemonstand" : {
     "code":"happy-hour",
@@ -37,5 +37,12 @@
     "gulp-uglify": "^1.4.1",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2"
-  }
+  },
+  "keywords": [
+    "sass",
+    "gulp",
+    "node-bourbon",
+    "responsive",
+    "small-catalog"
+  ]
 }
