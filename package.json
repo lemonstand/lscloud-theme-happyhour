@@ -10,8 +10,9 @@
     "options": "options.json",
     "demo": "https://happyhour.lemonstand.com",
     "screenshots" : {
-      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/tiny-square.png",
-      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/large-square.png"
+      "small": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/tiny-square.png",
+      "large": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/large-square.png",
+      "full": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-happyhour/master/resources/screenshots/full-size.png",
     }
   },
   "scripts": {
