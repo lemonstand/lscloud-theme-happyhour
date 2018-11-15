@@ -19,7 +19,7 @@ url: '/blog/:slug'
 	{% if profile_image %}
 	    <img class="img-circle" src="{{ profile_image.thumbnail(252, 'auto')|default('http://placehold.it/100x100') }}" height="100" width="100" alt="{{ profile_image.alt }}"/>
 	{% endif %}	    
-	<strong>{{ post.author_name }}</strong>
+	<p><strong>{{ post.author_name }}</strong></p>
 	    <ul class="social-links">
 		    {% for link in post.user.getSocialProfiles() %}
 		        <li class="{{ link.name }}">
